@@ -7,6 +7,7 @@ import WelcomeScreen from "./screens/welcome/WelcomeScreen";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import YourShararamScreen from "./screens/your-shararam/YourShararamScreen";
 import BioScreen from "./screens/bio/BioScreen";
+import LoveListScreen from "./screens/love-list/LoveListScreen";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -25,6 +26,9 @@ export default function App() {
                       headerShown: false
                   }}/>
                   <Stack.Screen name="Bio" component={BioScreen} options={{
+                      headerShown: false
+                  }}/>
+                  <Stack.Screen name="LoveList" component={LoveListScreen} options={{
                       headerShown: false
                   }}/>
               </Stack.Navigator>
