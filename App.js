@@ -1,51 +1,25 @@
 import {
-    SafeAreaView,
     StyleSheet,
-    TextInput,
-    View,
 } from 'react-native';
-import {useState} from "react";
-import CustomButton from "./components/button/CustomButton";
+import LoginScreen from "./screens/login/LoginScreen";
+import {NavigationContainer} from "@react-navigation/native";
+import WelcomeScreen from "./screens/welcome/WelcomeScreen";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import YourShararamScreen from "./screens/your-shararam/YourShararamScreen";
 
+const Stack = createNativeStackNavigator();
 export default function App() {
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
-
-    function pressedButton() {
-        console.log(login);
-        console.log(password);
-    }
 
   return (
-      <SafeAreaView style={styles.container}>
-          <View style={styles.formContainer}>
-              <TextInput
-                  style={styles.input}
-                  placeholder="Login"
-                  autoCapitalize="none"
-                  autoComplete="off"
-                  autoCorrect={false}
-                  onChangeText={setLogin}
-                  value={login}
-                  keyboardType="email-address"
-              />
-                  <TextInput
-                      style={styles.input}
-                      placeholder="Password"
-                      secureTextEntry={true}
-                      autoCorrect={false}
-                      autoCapitalize="none"
-                      autoComplete="off"
-                      value={password}
-                      onChangeText={setPassword}
-                  />
-              <CustomButton
-                  title='Login'
-                  customStyles={styles.btn}
-                  press={pressedButton}
-              />
-          </View>
-      </SafeAreaView>
+      <>
+          <NavigationContainer>
+              <Stack.Navigator initialRouteName="Login">
+                  <Stack.Screen name="Login" component={LoginScreen} />
+                  <Stack.Screen name="Welcome" component={WelcomeScreen} />
+                  <Stack.Screen name="Shararam" component={YourShararamScreen}/>
+              </Stack.Navigator>
+          </NavigationContainer>
+      </>
   );
 }
 
