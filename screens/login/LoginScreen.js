@@ -1,7 +1,8 @@
 import {
+    Keyboard,
     SafeAreaView,
     StyleSheet,
-    TextInput,
+    TextInput, TouchableWithoutFeedback,
     View,
 } from 'react-native';
 import {useState} from "react";
@@ -18,6 +19,7 @@ const LoginScreen = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={styles.formContainer}>
                 <TextInput
                     style={styles.input}
@@ -45,6 +47,7 @@ const LoginScreen = ({navigation}) => {
                     press={pressedButton}
                 />
             </View>
+            </TouchableWithoutFeedback>
         </SafeAreaView>
     );
 };
